@@ -15,31 +15,32 @@ function playRound (playerSelection) {
     let playerChoice = playerSelection.toLowerCase();
     let computerChoice = computerPlay();
 
+    if (playerChoice != "rock" || playerChoice != "paper" || playerChoice != "scissors") {
+        return "To play pick rock, paper or scissors";
+    }
+
     console.log(`The computer choose ${computerChoice}`);
 
     if (playerChoice == "rock" && computerChoice == "Paper") {
-        return "Paper beats Rock, you loose!";
+        return "You loose!";
     }
     else if (playerChoice == "rock" && computerChoice == "Scissors") {
-        return "Rock beats Scissors, you win!";
+        return "You win!";
     }
     else if (playerChoice == "paper" && computerChoice == "Scissors") {
-        return "Scissors beats Paper, you loose!";
+        return "You loose!";
     }
     else if (playerChoice == "paper" && computerChoice == "Rock") {
-        return "Paper beats Rock, you win!";
+        return "You win!";
     }
     else if (playerChoice == "scissors" && computerChoice == "Rock") {
-        return "Rock beats Scissors, you loose!";
+        return "You loose!";
     }
     else if (playerChoice == "scissors" && computerChoice == "Paper") {
-        return "Scissors beats Paper, you win!";
-    }
-    else if (playerChoice != "rock" || playerChoice != "paper" || playerChoice != "scissors") {
-        return "To play pick rock, paper or scissors";
+        return "You win!";
     }
     else {
         return "It's a tie!";
     }
-
 }
+
