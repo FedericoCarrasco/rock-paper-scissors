@@ -35,8 +35,11 @@ function playRound (playerSelection) {
     else if (playerChoice == "scissors" && computerChoice == "Paper") {
         return "Scissors beats Paper, you win!";
     }
+    else if (playerChoice != "rock" || playerChoice != "paper" || playerChoice != "scissors") {
+        return "To play pick rock, paper or scissors";
+    }
     else {
-        return "It's a tie!"
+        return "It's a tie!";
     }
 
 }
