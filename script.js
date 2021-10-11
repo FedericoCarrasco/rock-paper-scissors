@@ -4,7 +4,7 @@ function computerPlay () {
         return "Rock";
     }
     else if (computerChoice > 0.34 && computerChoice <= 0.67) {
-        return "Papel";
+        return "Paper";
     }
     else {
         return "Scissors";
