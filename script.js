@@ -72,6 +72,6 @@ function playRound (playerChoice) {
         youWin();
     }
     else {
-        result.textContent = "No one won this battle!";
+        result.textContent = "It's a tie!";
     }
 }

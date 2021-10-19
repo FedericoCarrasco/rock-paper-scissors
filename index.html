@@ -9,23 +9,33 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1> Play rock, paper or scissors against the machine, whoever wins 5 times wins the game!</h1>
+
+    <div id="headers">
+        <h1> Play rock, paper or scissors against the machine.</h1>
+        <h2>Whoever wins 5 times wins the game!</h2>
+    </div>
+
     <div id="buttons">
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
     </div>
-    <div id="computerWeapon"></div>
-    <div id="result"></div>
+
+    <div id="results">
+        <div id="computerWeapon"></div>
+        <div id="result"></div>
+    </div>
+
     <div id="counters">
         <div id="counter1">
             <h3>You have won</h3>
-            <div id="playerCounter">0 times.</div>
+            <h3 id="playerCounter">0 times.</h3>
         </div>
         <div id="counter2">
-            <h3>The computer has won</h3>
-            <div id="computerCounter">0 times.</div>
+            <h3>The machine has won</h3>
+            <h3 id="computerCounter">0 times.</h3>
         </div>
     </div>
+
 </body>
 </html>
