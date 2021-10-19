@@ -12,13 +12,11 @@ const computerWeapon = document.querySelector('#computerWeapon');
 
 const result = document.querySelector('#result');
 
-const playerCounter = document.querySelector('#counter1 p');
+const playerCounter = document.querySelector('#playerCounter');
 let playerCounterNumber = 0;
-playerCounter.textContent = `${playerCounterNumber} times.`;
 
-const computerCounter = document.querySelector('#counter2 p');
+const computerCounter = document.querySelector('#computerCounter');
 let computerCounterNumber = 0;
-computerCounter.textContent = `${computerCounterNumber} times.`;
 
 
 function computerPlay() {
@@ -35,25 +33,27 @@ function computerPlay() {
 }
 
 function youWin() {
-    result.textContent = "You win the battle!";
+    result.textContent = "You win!";
     playerCounterNumber += 1;
-    playerCounter.textContent = `${playerCounterNumber} times.`;
     if (playerCounterNumber >= 5) {
+        result.textContent = `You win the game!`;
         playerCounterNumber = 0;
         computerCounterNumber = 0;
-        result.textContent = `You have won the war!`;
     }
+    playerCounter.textContent = `${playerCounterNumber} times.`;
+    computerCounter.textContent = `${computerCounterNumber} times.`;
 }
 
 function youLoose() {
-    result.textContent = "You loose the battle!";
+    result.textContent = "You loose!";
     computerCounterNumber += 1;
-    computerCounter.textContent = `${computerCounterNumber} times.`
     if (computerCounterNumber >= 5) {
+        result.textContent = `The machine wins the game, play again!`
         playerCounterNumber = 0;
         computerCounterNumber = 0;
-        result.textContent = `The machine has won the war, fight again!`
     }
+    playerCounter.textContent = `${playerCounterNumber} times.`;
+    computerCounter.textContent = `${computerCounterNumber} times.`;
 }
 
 function playRound (playerChoice) {
@@ -61,53 +61,17 @@ function playRound (playerChoice) {
     let computerChoice = computerPlay();
     computerWeapon.textContent = `The computer choose ${computerChoice}`;
 
-    if (playerChoice == "rock" && computerChoice == "Paper") {
+    if (playerChoice == "rock" && computerChoice == "Paper" ||
+        playerChoice == "paper" && computerChoice == "Scissors" ||
+        playerChoice == "scissors" && computerChoice == "Rock") {
         youLoose();
     }
-    else if (playerChoice == "rock" && computerChoice == "Scissors") {
-        youWin();
-    }
-    else if (playerChoice == "paper" && computerChoice == "Scissors") {
-        youLoose();
-    }
-    else if (playerChoice == "paper" && computerChoice == "Rock") {
-        youWin();
-    }
-    else if (playerChoice == "scissors" && computerChoice == "Rock") {
-        youLoose();
-    }
-    else if (playerChoice == "scissors" && computerChoice == "Paper") {
+    else if (playerChoice == "rock" && computerChoice == "Scissors" ||
+             playerChoice == "paper" && computerChoice == "Rock" ||
+             playerChoice == "scissors" && computerChoice == "Paper") {
         youWin();
     }
     else {
         result.textContent = "No one won this battle!";
-    }
-}
-
-function game () {
-    let counter = 0;
-    let roundResult = "";
-
-    for (let i = 0; i < 5; i++) {
-
-        roundResult = playRound();
-        console.log(roundResult);
-
-        if (roundResult == "You loose!") {
-            counter--;
-        }
-        else if (roundResult == "You win!") {
-            counter++;
-        }
-    }
-
-    if (counter < 0) {
-        return "Game over, you loose";
-    }
-    else if (counter > 0) {
-        return "Game over, you win!";
-    }
-    else {
-        return "Game over, it's a tie!"
     }
 }
